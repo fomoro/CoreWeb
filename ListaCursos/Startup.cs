@@ -1,3 +1,5 @@
+using ListaCursos.Interfaces;
+using ListaCursos.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +25,7 @@ namespace ListaCursos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ICoursesProvider, FakeCoursesProvider>();
             services.AddRazorPages();
         }
 
