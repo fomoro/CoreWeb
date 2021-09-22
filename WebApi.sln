@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaCursos", "ListaCursos\ListaCursos.csproj", "{5436DA12-2E99-45B1-BECD-C03E659C0E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCursos", "ApiCursos\ApiCursos.csproj", "{DA8EDA94-18AF-4B31-BF70-A137114E5BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCursos", "ApiCursos\ApiCursos.csproj", "{DA8EDA94-18AF-4B31-BF70-A137114E5BD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCursos", "MVCCursos\MVCCursos.csproj", "{CCD807F4-DAFA-4D0E-A36B-C27D2B902593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DA8EDA94-18AF-4B31-BF70-A137114E5BD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA8EDA94-18AF-4B31-BF70-A137114E5BD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA8EDA94-18AF-4B31-BF70-A137114E5BD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCD807F4-DAFA-4D0E-A36B-C27D2B902593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD807F4-DAFA-4D0E-A36B-C27D2B902593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD807F4-DAFA-4D0E-A36B-C27D2B902593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD807F4-DAFA-4D0E-A36B-C27D2B902593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
