@@ -1,0 +1,87 @@
+﻿@model PeliculasWeb.Models.ViewModels.IndexVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!-- modificado -->
+
+<div class="row mt-4">
+    <div class="col-sm-12">
+        @if (TempData["alert"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h5><strong>@TempData["alert"]</strong></h5>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 offset-3">
+        <h2 class="text-center">Últimas Películas</h2>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-4 offset-4">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categorías
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                @foreach (var categoria in Model.ListaCategorias)
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="IndexCategoria" asp-route-id="@categoria.Id">@categoria.Nombre</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4 float-right">
+        <form asp-action="IndexBusqueda" class="form-inline my-2 my-lg-0">
+
+            <input type="search" name="nombre" placeholder="Buscar película" class="form-control mr-sm-2" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+
+        </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+    @if (Model.ListaPeliculas.Count() > 0)
+    {
+        @foreach (var pelicula in Model.ListaPeliculas)
+        {
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    @if (pelicula.RutaImagen != null)
+                    {
+                        var base64 = Convert.ToBase64String(pelicula.RutaImagen);
+                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                        <img src="@imgsrc" class="card-img-top" />
+                    }
+
+                <div class="card-body">
+                    <h5 class="card-title">@pelicula.Nombre</h5>
+                    <p class="card-text">Duración: @pelicula.Duracion</p>
+                    <p class="card-text">Clasificación: @pelicula.Clasificacion</p>
+                    <p class="card-text">Fecha de creación: @pelicula.FechaCreacion</p>
+                    <p class="card-text">@pelicula.Descripcion</p>
+                </div>
+                </div>
+                </div>
+        }
+    }
+    else
+    {
+    <p>No hay películas para mostrar</p>
+    }
+</div>
